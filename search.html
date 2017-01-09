@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search The Servent</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/search.css" />
+</head>
+<body ng-app="myApp">
+    <!-- navigation -->
+    <div id="nav" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#collapsenav">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">Home</a>
+        </div>
+        <div class="collapse navbar-collapse" id="collapsenav">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servents<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Saber.html">Saber</a></li>
+                        <li><a href="Archer.html">Archer</a></li>
+                        <li class="disabled"><a href="Berserker.html">Berserker</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Search</a></li><!--This link needs to be fixed -->
+                <li><a href="#">Contact Me</a></li><!--This link needs to be fixed -->
+            </ul>
+            <form action="##" class="navbar-form navbar-left" rol="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Saber" />
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
+    </div>
+    <!-- /navigation -->
+    
+    <!--<img src="images/Search.png" />
+    <div ng-app="myApp" ng-controller="formCtrl">
+        <form novalidate>
+            <input type="text" ng-model="ServentName">
+            <button ng-click="Search()">Search</button>
+        </form>
+    </div>-->
+
+    <div ng-controller="searchController" class="container">
+        <table class="serventTable table">
+            <tr class="searchRow">
+                <td colspan="3"><input type="text" ng-model="searchS" placeholder="Search"/></td>
+                <td colspan="2" ng-click="changeOrder('Atk')" ng-class="{dropup:order === ''}">
+                    <button type="button" class="btn btn-primary">Atk</button>
+                    <span class="caret"></span>
+                </td>
+                <td colspan="2" ng-click="changeOrder('Hp')" ng-class="{dropup:order === ''}">
+                    <button type="button" class="btn btn-primary">Hp</button>
+                    <span class="caret"></span>
+                </td>
+                <td colspan="2" ng-click="changeOrder('Class')" ng-class="{dropup:order === ''}">
+                    <button type="button" class="btn btn-primary">Class</button>
+                    <span class="caret"></span>
+                </td>
+            </tr>
+            <tr class="searchRow">
+                <td ng-repeat="clas in serventClas" colspan="1">
+                    <input type="checkbox" class="checkbox-inline" id="{{clas}}" ng-model="classCheck"
+                           ng-click="updateSelection($event,classCheck,clas)" ng-checked="true"/>
+                    <img src="images/icon/{{clas}}.jpg" width="30" height="60"/>
+                </td>
+            </tr>
+        </table>
+        <table class="table serventTable">
+            <thead>
+                <tr>
+                    <th>Head</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Atk</th>
+                    <th>Hp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="servent in serventArr | filter:{fullName:searchS} | orderBy:order + orderType">
+                    <td><img src={{servent.imgUrl}} /></td>
+                    <td>{{servent.fullName}}</td>
+                    <td>{{servent.Class}}</td>
+                    <td>{{servent.Atk}}</td>
+                    <td>{{servent.Hp}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

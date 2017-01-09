@@ -1,0 +1,26 @@
+body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #00BBFF;
+}
+
+.serventTable {
+    background-color: #FFFFFF;
+    border: solid 3px;
+}
+
+.serventTable > thead {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0000FF;
+    background-color: #FFFF00;
+}
+
+.serventTable > tbody {
+    font-size: 1.5em;
+    border: solid 3px;
+}
+.searchRow {
+    background-color: #00FF00;
+}
